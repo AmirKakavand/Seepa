@@ -25,10 +25,16 @@ const useStyles = makeStyles((theme: Theme) =>
             color: "white",
             textDecoration: "none"
         },
+        appBar: {
+            position: "fixed",
+            top: "0",
+            zIndex: 3
+        },
         bottomNav: {
             width: "100%",
             position: "fixed",
-            bottom: "0"
+            zIndex: 3,
+            bottom: "0",
         },
         toolbar: {
             backgroundColor: "#444"
@@ -70,10 +76,10 @@ function Navigation(): JSX.Element {
         setValue(newValue);
     };
     return (
-        <div className={classes.root}>
+        <div>
             {/* Navigation for screens bigger than sm(small) */}
             <Hidden xsDown>
-                <AppBar position="static">
+                <AppBar className={classes.appBar}>
                     <Toolbar className={classes.toolbar}>
                         <Link className={classes.title} to="/">
                             <Typography variant="h6" className={classes.title}>
