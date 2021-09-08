@@ -33,8 +33,8 @@ const useStyles = makeStyles((theme: Theme) =>
         bottomNav: {
             width: "100%",
             position: "fixed",
-            zIndex: 3,
             bottom: "0",
+            zIndex: 3
         },
         toolbar: {
             backgroundColor: "#444"
@@ -82,7 +82,7 @@ function Navigation(): JSX.Element {
                 <AppBar className={classes.appBar}>
                     <Toolbar className={classes.toolbar}>
                         <Link className={classes.title} to="/">
-                            <Typography variant="h6" className={classes.title}>
+                            <Typography variant="h1" className={classes.title}>
                                 Seepa
                             </Typography>
                         </Link>

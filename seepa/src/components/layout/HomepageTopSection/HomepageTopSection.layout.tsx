@@ -1,9 +1,9 @@
 import Carousel from 'react-bootstrap/Carousel';
 import Hidden from '@material-ui/core/Hidden';
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import photoLinks from '../../../data/photos/photoLinks';
 import Grid from '@material-ui/core/Grid';
 import { Link } from "react-router-dom";
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import photoLinks from '../../../data/photos/photoLinks';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -31,12 +31,13 @@ const useStyles = makeStyles((theme: Theme) =>
         carouselDesktop: {
             width: "90%",
             height: "fit-content",
-            // width: "auto",
-            // margin: "5% 0 0 5%",
             margin: "auto",
             borderRadius: "0.5rem",
             padding: "5% 0",
-            // backgroundColor: "#444"
+        },
+        caption: {
+            color: "#444",
+            fontSize: "1.2rem"
         },
         topSectionDesktop: {
             marginTop: "3rem"
@@ -113,7 +114,9 @@ function HomepageTopSection() {
                                         src={carouselItem.imageSrc}
                                         alt={carouselItem.altText}
                                     />
-                                    <Carousel.Caption>{carouselItem.caption}</Carousel.Caption>
+                                    <Carousel.Caption>
+                                        {carouselItem.caption}
+                                    </Carousel.Caption>
                                 </Carousel.Item>
                             })}
                         </Carousel>
@@ -123,20 +126,20 @@ function HomepageTopSection() {
 
                         <Grid item xs={6} className={classes.eventContainerPhone}>
                             <h2 className={classes.eventTitlePhone}>New Shoes</h2>
-                            <Link to="/new-shoes">
+                            <a href="#categories">
                                 <img className={classes.eventImagePhone}
                                     src={photoLinks.homepageEvents.newShoesCoverPhoto.imageSrc}
                                     alt={photoLinks.homepageEvents.newShoesCoverPhoto.altText} />
-                            </Link>
+                            </a>
                         </Grid>
 
                         <Grid item xs={6} className={classes.eventContainerPhone}>
                             <h2 className={classes.eventTitlePhone}>Offers</h2>
-                            <Link to="/special-offers">
+                            <a href="#offers">
                                 <img className={classes.eventImagePhone}
                                     src={photoLinks.homepageEvents.specialOffersCoverPhoto.imageSrc}
                                     alt={photoLinks.homepageEvents.specialOffersCoverPhoto.altText} />
-                            </Link>
+                            </a>
                         </Grid>
                     </Grid>
                 </Grid>
@@ -156,7 +159,9 @@ function HomepageTopSection() {
                                         src={carouselItem.imageSrc}
                                         alt={carouselItem.altText}
                                     />
-                                    <Carousel.Caption>{carouselItem.caption}</Carousel.Caption>
+                                    <Carousel.Caption className={classes.caption}>
+                                        {carouselItem.caption}
+                                    </Carousel.Caption>
                                 </Carousel.Item>
                             })}
                         </Carousel>
@@ -164,20 +169,24 @@ function HomepageTopSection() {
 
                     <Grid container xs={4} className={classes.eventsDesktop}>
                         <Grid item xs={10} className={classes.eventContainerDesktop}>
-                            <Link to="/new-shoes" className={classes.link}>
-                                <h2 className={classes.eventTitleDesktop}>New Shoes</h2>
+                            <a href="#categories" className={classes.link}>
+                                <h2 className={classes.eventTitleDesktop}>
+                                    New Shoes
+                                </h2>
                                 <img className={classes.eventImageDesktop}
                                     src={photoLinks.homepageEvents.newShoesCoverPhoto.imageSrc}
                                     alt={photoLinks.homepageEvents.newShoesCoverPhoto.altText} />
-                            </Link>
+                            </a>
                         </Grid>
                         <Grid item xs={10} className={classes.eventContainerDesktop}>
-                            <Link to="/special-offers" className={classes.link}>
-                                <h2 className={classes.eventTitleDesktop}>Special Offers</h2>
+                            <a href="#offers" className={classes.link}>
+                                <h2 className={classes.eventTitleDesktop}>
+                                    Special Offers
+                                </h2>
                                 <img className={classes.eventImageDesktop}
                                     src={photoLinks.homepageEvents.specialOffersCoverPhoto.imageSrc}
                                     alt={photoLinks.homepageEvents.specialOffersCoverPhoto.altText} />
-                            </Link>
+                            </a>
                         </Grid>
                     </Grid>
                 </Grid>
