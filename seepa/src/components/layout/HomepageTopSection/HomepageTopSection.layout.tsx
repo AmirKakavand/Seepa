@@ -1,7 +1,6 @@
 import Carousel from 'react-bootstrap/Carousel';
 import Hidden from '@material-ui/core/Hidden';
 import Grid from '@material-ui/core/Grid';
-import { Link } from "react-router-dom";
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import photoLinks from '../../../data/photos/photoLinks';
 

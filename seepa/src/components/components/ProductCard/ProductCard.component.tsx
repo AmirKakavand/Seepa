@@ -7,6 +7,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import {Link} from 'react-router-dom';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -25,18 +26,20 @@ const useStyles = makeStyles((theme: Theme) =>
             fontSize: "1.1rem"
         },
         button: {
-            margin: "auto auto 0.5rem 0.5rem"
+            margin: "auto auto 0.5rem 0.5rem",
+            backgroundColor: "crimson",
+            color: "white",
         }
     })
 )
 
 interface IProps {
     imageSrc: string,
-    shoeName: string,
-    price: number
+    shoeName?: string,
+    price?: number
 }
 
-function ProductCard(props: IProps) {
+function ProductCard({ imageSrc, shoeName = "a pair of shoes", price = 49.95 }: IProps) {
     const classes = useStyles()
 
     return (
@@ -45,28 +48,33 @@ function ProductCard(props: IProps) {
                 <CardActionArea>
                     <CardMedia
                         className={classes.media}
-                        image={props.imageSrc}
-                        title={props.shoeName}
+                        image={imageSrc}
+                        title={shoeName}
                     />
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="h2">
-                            {props.shoeName}
+                            {shoeName}
                         </Typography>
                         <Typography variant="body2" color="textSecondary" component="p">
                             The best pair of shoes! With these shoes there
                             won't be a place on god's green earth that
                             you wouldn't be able to go to.
-                            Don't lose this chance and buy them now!<br/>
+                            Don't lose this chance and buy them now!<br />
                             <span className={classes.onlyFor}>Only for </span>
-                            <span className={classes.price}>${props.price}</span>
+                            <span className={classes.price}>${price}</span>
                         </Typography>
                     </CardContent>
                 </CardActionArea>
                 <CardActions>
-                    <Button size="small" className={classes.button} 
-                    variant="contained" color="primary">
-                        View
-                    </Button>
+                    <Link
+                        onClick={() => window.scrollTo(0, 0)}
+                        style={{ textDecoration: "none" }}
+                        to={"/product-page/" + imageSrc}>
+                        <Button size="small" variant='contained' color="secondary"
+                            className={classes.button}>
+                            View
+                        </Button>
+                    </Link>
                 </CardActions>
             </Card>
         </div>

@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme: Theme) =>
             flexGrow: 1,
             fontSize: "2.5rem",
             color: "white",
-            textDecoration: "none"
+            textDecoration: "none",
         },
         appBar: {
             position: "fixed",
@@ -86,11 +86,11 @@ function Navigation(): JSX.Element {
                                 Seepa
                             </Typography>
                         </Link>
-                        <Link className={classes.navbarLinks} to="/products">
+                        {/* <Link className={classes.navbarLinks} to="/products">
                             <Button className={classes.navbarLinkButtons}>
                                 Products
                             </Button>
-                        </Link>
+                        </Link> */}
                         <Link className={classes.navbarLinks} to="/cart">
                             <Button className={classes.navbarLinkButtons}>
                                 Cart <IconButton className={classes.navbarIcon}>
@@ -111,9 +111,9 @@ function Navigation(): JSX.Element {
                         component={Link} to="/"
                         className={classes.bottomNavIcon} icon={<MdHome />} />
 
-                    <BottomNavigationAction label="Products" value="products"
+                    {/* <BottomNavigationAction label="Products" value="products"
                         component={Link} to="/products"
-                        className={classes.bottomNavIcon} icon={<MdShoppingBasket />} />
+                        className={classes.bottomNavIcon} icon={<MdShoppingBasket />} /> */}
 
                     <BottomNavigationAction label="Cart" value="cart"
                         component={Link} to="/cart"

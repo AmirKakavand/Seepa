@@ -41,7 +41,11 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         anchorTag: {
             color: "inherit",
-            textDecoration: "none"
+            textDecoration: "none",
+            transition: "linear 0.3s",
+            "&:hover": {
+                color: "#777",
+            }
         },
         copyRight: {
             textAlign: "center",
